@@ -13,46 +13,76 @@
   /*font-family: "Antonio", sans-serif;*/
   max-width: 100%;
 
+
 }
 
 h1 {
   color: rgb(66, 146, 131);
-  font-weight: 700; /* O 'bold' */
+  font-weight: 700;
+  /* O 'bold' */
+  
 }
 
 /* Establece el grosor para los h2 */
 h2 {
   color: rgb(66, 146, 131);
-  font-weight: 300; /* Un poco menos que el h1 */
+  font-weight: 300;
+  /* Un poco menos que el h1 */
 }
 
 /* Establece el grosor para los párrafos (p) */
 p {
-    font-family: "Roboto Condensed", sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
 
-  font-weight: 50; /* O 'light' para que se vean delgados */
+  font-weight: 50;
+  /* O 'light' para que se vean delgados */
 }
 
 body {
-  background: #fffffb;
   align-items: center;
   justify-content: center;
 
+  background: #8e9eab;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #eef2f3, #8e9eab);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 
 }
+
+
+/* =============================ESTILOS PRINCIPALES============================= */
 
 .container-1 {
-  position: relative; /* 👈 Necesario para que el ::before se ajuste acá */
-  background-image: url(imagenes/img-camion-baño.jpeg);
-  background-position: center;
+
+
+  position: relative;
+  background-image: url("imagenes/img-camion-baño.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
-  width: 100%;
-  height: 800px;
-  overflow: hidden; /* asegura que el ::before no se escape */
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+  background-position: center 0;
+  height: 100vh;
+  overflow: hidden;
+  /* Variable para el overlay dinámico */
+  --overlay-color: rgba(245, 244, 244, 0);
 
 }
+
+.container-1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--overlay-color);
+  pointer-events: none;
+  transition: background 1.1s linear;
+  z-index: 1;
+}
+
 
 
 
@@ -62,7 +92,9 @@ body {
   display: flex;
   justify-content: space-between;
   margin: auto;
+
 }
+
 
 .img-logo {
   margin: 0;
@@ -285,50 +317,55 @@ ul {
 
 .presentacion-inicio {
   position: relative;
-  z-index: 2; /* 👈 el texto queda arriba del overlay oscuro */
+  z-index: 2;
+  /* 👈 el texto queda arriba del overlay oscuro */
   justify-content: center;
   align-items: center;
   text-align: start;
   margin-left: 50px;
   margin-top: 100px;
 }
-.presentacion-inicio h1{
+
+.presentacion-inicio h1 {
   font-size: 100px;
 }
-.presentacion-inicio h2{
+
+.presentacion-inicio h2 {
   font-size: 30px;
   color: rgb(225, 225, 225);
 }
 
-.container-1::before {
-  content: "";
-  position: absolute;
-  top: 0; 
-  left: 0;
-  width: 100%; 
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* capa oscura en toda la imagen */
-  z-index: 1; /* para que quede encima de la imagen */
-}
 
 
 /* Config de Container-2 */
 
 .propuesta-valor {
-  padding:100px 50px;
   text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+
+
 }
 
 
 
 .propuesta-valor h1 {
-  font-size: 3rem;
+  margin: 100px;
+
+  font-size: 2.5rem;
   color: #333;
   line-height: 1.5;
+
+
 }
+
 .propuesta-valor span {
   color: rgb(66, 146, 131);
   font-weight: bold;
+  font-size: 3rem;
+
+
+
 }
 
 
@@ -338,6 +375,7 @@ ul {
   margin: auto;
   margin-top: 100px;
   font-size: 20px;
+
 }
 
 /* Config de servicios */
@@ -349,9 +387,259 @@ ul {
   justify-content: space-between;
   align-items: center;
   border-radius: 20px;
-  
+}
+
+
+
+
+main {
+
+
+  background: #8e9eab;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #eef2f3, #8e9eab);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
+
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+  padding: 80px 10%;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.features.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.feature {
+  background: rgb(216, 221, 218);
+  padding: 30px 20px;
+  border-radius: 18px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.icono {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 15px;
+  color: #0066cc;
+}
+
+.icono svg {
+  width: 100%;
+  height: 100%;
+}
+
+.feature h3 {
+  font-size: 1.45em;
+  font-weight: 600;
+  color: #222;
+}
+
+.feature p {
+  font-size: 22px;
+  color: #000000;
+  font-weight: 400;
+}
+
+
+
+/* Configuracion de servicios */
+
+
+
+.galeria-servicios {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 850px;
+  column-gap: 5px;
+  /* separación entre columnas */
+  row-gap: 180px;
+  /* separación entre filas (más grande para separar arriba de abajo) */
+  padding: 40px 3%;
+  /* 🔹 menos margen a los costados (antes 10%) */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+}
+
+/* Primera fila (dos grandes, mitad y mitad) */
+.img-servicio-1 {
+  grid-column: span 3;
+  /* ocupa 3 de 6 columnas */
+  grid-row: 1;
+
+}
+
+.img-servicio-2 {
+  grid-column: span 3;
+  grid-row: 1;
+}
+
+/* Segunda fila (tres más chicas, cada una 2 columnas) */
+.img-servicio-3 {
+  grid-column: span 2;
+  grid-row: 2;
+}
+
+.img-servicio-4 {
+  grid-column: span 2;
+  grid-row: 2;
+}
+
+.img-servicio-5 {
+  grid-column: span 2;
+  grid-row: 2;
+
+}
+
+/* Estilos generales */
+.img-servicio-1,
+.img-servicio-2,
+.img-servicio-3,
+.img-servicio-4,
+.img-servicio-5 {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+
+}
+
+.img-servicio-1:hover,
+.img-servicio-2:hover,
+.img-servicio-3:hover,
+.img-servicio-4:hover,
+.img-servicio-5:hover {
+  transform: scale(1.01);
+
+}
+
+
+/* --- Overlay de texto centrado --- */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Centra verticalmente */
+  align-items: center;
+  /* Centra horizontalmente */
+
+  background: rgba(0, 0, 0, 0.35);
+  /* FONDO TRANSLÚCIDO -> puedes cambiar opacidad */
+  text-align: center;
+  color: white;
+  padding: 10px;
+
+  /* Para suavizar transición si haces hover */
+  transition: background 0.3s ease;
+  border-radius: 20px;
+}
+
+.overlay h2 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  text-shadow: 0px 3px 8px rgba(0, 0, 0, 0.7);
+  /* SOMBRA DE TEXTO SUAVE */
+}
+
+.overlay p {
+  margin: 5px 0 0;
+  font-size: 18px;
+  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.6);
+  /* SOMBRA MÁS SUAVE PARA DESCRIPCIÓN */
+}
+
+
+
+
+/* Asignación de imágenes */
+.img-servicio-1 {
+  background-image: url("imagenes/servicio3.jpg");
+}
+
+.img-servicio-2 {
+  background-image: url("imagenes/servicio3.jpg");
+}
+
+.img-servicio-3 {
+  background-image: url("imagenes/servicio3.jpg");
+}
+
+.img-servicio-4 {
+  background-image: url("imagenes/servicio3.jpg");
+}
+
+.img-servicio-5 {
+  background-image: url("imagenes/servicio3.jpg");
+}
+
+/* ---------------------- */
+/* 📱 Responsive Design   */
+/* ---------------------- */
+
+/* Tablets: 2 columnas */
+@media (max-width: 1024px) {
+  .galeria-servicios {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 200px;
+  }
+
+  .img-servicio-1,
+  .img-servicio-2,
+  .img-servicio-3,
+  .img-servicio-4,
+  .img-servicio-5 {
+    grid-column: span 1 !important;
+    /* cada uno ocupa 1 columna */
+    grid-row: auto;
+  }
+}
+
+/* Celulares: 1 columna */
+@media (max-width: 768px) {
+  .galeria-servicios {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 200px;
+  }
+
+  .img-servicio-1,
+  .img-servicio-2,
+  .img-servicio-3,
+  .img-servicio-4,
+  .img-servicio-5 {
+    grid-column: span 1 !important;
+    /* cada uno ocupa toda la fila */
+  }
+}
+
+
+
 
 /* Esto configura el texto de todos los servicios */
 
@@ -365,288 +653,20 @@ ul {
 }
 
 
-/* Servicio 1 */
-.servicio-1 {
-  margin: auto;
-  justify-content: space-between;
-  align-items: center;
-  width: 700px;
-  height: 550px;
-  margin-top: 15px;
-  border-radius: 20px;
 
+.container-3 {
+  background: #44A08D;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #093637, #44A08D);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #093637, #44A08D);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  margin-top: 150px;
 }
 
-
-.carta-servicio-1 {
-  background-image: url("imagenes/servicio1.jpg");
+.imagen-fondo {
   position: relative;
-  background-size: cover;
-  background-position: center;
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
-  /* texto al fondo */
-  justify-content: center;
-  color: white;
-  padding: 20px;
-  border-radius: 20px;
-}
-
-
-.carta-servicio-1:hover {
-  scale: 1.05;
-  transition: 0.7s;
-  cursor: pointer;
-}
-
-
-.carta-servicio-1::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  /* capa oscura */
-  z-index: 1;
-  border-radius: 20px;
-}
-
-
-
-
-/* Config de Servicio 2 */
-
-
-.servicio-2 {
-  margin: auto;
-  justify-content: space-between;
-  align-items: center;
-  width: 700px;
-  height: 550px;
-  margin-top: 15px;
-  border-radius: 20px;
-
-}
-
-/* Config de Servicio 2 */
-
-.carta-servicio-2 {
-  background-image: url("imagenes/servicio1.jpg");
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
-  /* texto al fondo */
-  justify-content: center;
-  color: white;
-  padding: 20px;
-  border-radius: 20px;
-}
-
-
-.carta-servicio-2:hover {
-  scale: 1.05;
-  transition: 0.7s;
-  cursor: pointer;
-}
-
-
-.carta-servicio-2::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  /* capa oscura */
-  z-index: 1;
-  border-radius: 20px;
-}
-
-
-
-/* Config de Servicio 3 */
-
-
-.servicio-3 {
-  margin: auto;
-  justify-content: space-between;
-  align-items: center;
-  width: 450px;
-  height: 500px;
-  margin-top: 15px;
-  border-radius: 20px;
-
-}
-
-
-.carta-servicios-3 {
-  background-image: url("imagenes/servicio1.jpg");
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
-  /* texto al fondo */
-  justify-content: center;
-  color: white;
-  padding: 20px;
-  border-radius: 20px;
-}
-
-.carta-servicios-3:hover {
-  scale: 1.05;
-  transition: 0.7s;
-  cursor: pointer;
-}
-
-
-.carta-servicios-3::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  /* capa oscura */
-  z-index: 1;
-  border-radius: 20px;
-}
-
-
-
-
-
-/* Config de Servicio 4 */
-.servicio-4 {
-  margin: auto;
-  justify-content: space-between;
-  align-items: center;
-  width: 450px;
-  height: 500px;
-  margin-top: 15px;
-  border-radius: 20px;
-
-
-}
-
-
-.carta-servicio-4 {
-  background-image: url("imagenes/servicio1.jpg");
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
-  /* texto al fondo */
-  justify-content: center;
-  color: white;
-  padding: 20px;
-  border-radius: 20px;
-}
-
-.carta-servicio-4:hover {
-  scale: 1.05;
-  transition: 0.7s;
-  cursor: pointer;
-}
-
-.carta-servicio-4::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  /* capa oscura */
-  z-index: 1;
-  border-radius: 20px;
-}
-
-/* Config de Servicio 5 */
-
-
-.servicio-5 {
-  margin: auto;
-  justify-content: space-between;
-  align-items: center;
-  width: 450px;
-  height: 500px;
-  margin-top: 15px;
-  border-radius: 20px;
-
-}
-
-
-.carta-servicio-5 {
-  background-image: url("imagenes/servicio1.jpg");
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
-  /* texto al fondo */
-  justify-content: center;
-  color: white;
-  padding: 20px;
-  border-radius: 20px;
-}
-
-.carta-servicio-5:hover {
-  scale: 1.05;
-  transition: 0.7s;
-  cursor: pointer;
-}
-
-
-.carta-servicio-5::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  /* capa oscura */
-  z-index: 1;
-  border-radius: 20px;
-}
-
-
-
-
-
-/* Configuracion de Container-3 */
-
-
-/*.imagen-fondo {
-  background-image: linear-gradient(rgba(8, 14, 12, 0.7), rgba(15, 26, 16, 0.486)),
-  url(imagenes/imagen-fondo.jpg);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  height: 30em;
-  margin-top: 45px;
-   display: flex;
-  justify-content: center;   
-  align-items: center;       
-  padding-top: 50px;
-
-}
-  */
-  .imagen-fondo {
-  position: relative;   /* necesario para que el ::before se posicione encima */
+  /* necesario para que el ::before se posicione encima */
   background-image: url(imagenes/imagen-fondo.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -668,12 +688,11 @@ ul {
   height: 100%;
 
   /* degradado verde con transparencia */
-  background: linear-gradient(
-    rgba(14, 20, 14, 0.7),
-    rgba(4, 8, 5, 0.555)
-  );
+  background: linear-gradient(rgba(14, 20, 14, 0.7),
+      rgba(4, 8, 5, 0.555));
 
-  z-index: 1; /* se pone arriba de la imagen */
+  z-index: 1;
+  /* se pone arriba de la imagen */
 }
 
 
@@ -681,9 +700,11 @@ ul {
 
 
 .sobre-nosotros {
-  position: relative; /* para que quede encima del ::before */
-  z-index: 2;         /* asegura que el texto no quede tapado */
-  
+  position: relative;
+  /* para que quede encima del ::before */
+  z-index: 2;
+  /* asegura que el texto no quede tapado */
+
   width: 80%;
   height: 160px;
   padding: 10px;
@@ -692,15 +713,18 @@ ul {
   opacity: 0.9;
   border-radius: 10px;
   text-align: center;
-}
-.sobre-nosotros h1{
- color: rgb(66, 146, 131);
-}
-
-.sobre-nosotros p{
-   color: rgb(255, 255, 255);
 
 }
+
+.sobre-nosotros h1 {
+  color: rgb(66, 146, 131);
+}
+
+.sobre-nosotros p {
+  color: rgb(255, 255, 255);
+
+}
+
 hr {
   border: 0;
 
@@ -715,6 +739,8 @@ hr {
 
 
 /* Config de Container-4 */
+
+
 
 .ubicacion {
   margin-top: 45px;
@@ -739,11 +765,8 @@ hr {
 }
 
 
-
 /* Config de Container-6 */
-.container-6 {
-  background-color: #edeaea;
-}
+
 
 .nuestras-redes {
   text-align: center;
