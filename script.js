@@ -88,3 +88,15 @@ window.addEventListener("scroll", function () {
     features.classList.add("visible");
   }
 });
+
+// JavaScript mínimo para efectos adicionales si es necesario
+        const serviceCard = document.getElementById('serviceCard');
+        
+        serviceCard.addEventListener('mouseenter', function() {
+            this.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.4)';
+        });
+        
+        serviceCard.addEventListener('mouseleave', function() {
+            this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
+        });
+
