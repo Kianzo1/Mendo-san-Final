@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   });
 
-  });
+});
 
 
 // Efecto Parallax y Oscurecimiento dinámico
@@ -89,14 +89,39 @@ window.addEventListener("scroll", function () {
   }
 });
 
-// JavaScript mínimo para efectos adicionales si es necesario
-        const serviceCard = document.getElementById('serviceCard');
-        
-        serviceCard.addEventListener('mouseenter', function() {
-            this.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.4)';
-        });
-        
-        serviceCard.addEventListener('mouseleave', function() {
-            this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
-        });
 
+/*
+// JavaScript mínimo para efectos adicionales si es necesario
+const serviceCard = document.getElementById('serviceCard');
+
+serviceCard.addEventListener('mouseenter', function () {
+  this.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.4)';
+});
+
+serviceCard.addEventListener('mouseleave', function () {
+  this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
+});
+
+
+*/
+/* */
+
+  const botonesServicios = document.getElementById("botones-servicios");
+  const seccionServicios = document.getElementById("servicios");
+
+  window.addEventListener("scroll", () => {
+    const rect = seccionServicios.getBoundingClientRect();
+    const visible = rect.top <= window.innerHeight && rect.bottom >= 0;
+
+    if (visible) {
+      botonesServicios.classList.add("visible");
+      botonesServicios.classList.remove("hidden");
+    } else {
+      botonesServicios.classList.add("hidden");
+      botonesServicios.classList.remove("visible");
+    }
+  });
+
+
+  
+  

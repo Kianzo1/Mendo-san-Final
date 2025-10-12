@@ -520,7 +520,9 @@ main {
   border-radius: 15px;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.3s ease;
+
+  
+  transition: transform 0.6s ease;
 
 }
 
@@ -529,7 +531,7 @@ main {
 .img-servicio-3:hover,
 .img-servicio-4:hover,
 .img-servicio-5:hover {
-  transform: scale(1.01);
+  transform: scale(1.001);
 
 }
 
@@ -821,6 +823,8 @@ main {
 /* Config de Container-6 */
 
 
+/*
+
 .nuestras-redes {
   text-align: center;
   margin: auto;
@@ -999,4 +1003,320 @@ ul {
 
 .kianzo a {
   color: rgb(11, 234, 174);
+}
+*/
+
+/* === FOOTER GENERAL === */
+footer {
+  background: linear-gradient(180deg, #0f1713, #000000); /* degradado con tinte verde oscuro */
+  color: #ffffff;
+  padding: 40px 20px;
+  font-family: 'Poppins', sans-serif;
+  border-top: 2px solid rgba(76, 175, 80, 0.3); /* línea sutil superior */
+}
+
+.container-final {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin: auto;
+
+}
+
+/* === TÍTULO REDES === */
+.nuestras-redes h2::before {
+  content: " ";
+  font-size: 1.4rem;
+}
+
+.nuestras-redes h2 {
+  text-align: center;
+  font-size: 2.3rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: rgb(66, 146, 131); /* verde corporativo */
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(76, 175, 80, 0.3);
+  padding-bottom: 8px;
+}
+
+.nuestras-redes p {
+  text-align: center;
+  font-size: 2rem;
+  color: #cccccc;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+
+/* === COPYRIGHT & INFO === */
+
+
+.copyright h3 {
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+
+}
+
+.copyright h3::after {
+  content: " 🌿 "; /* ícono de hoja minimalista */
+  font-size: 1.3rem;
+}
+
+.copyright h3 .acentoceleste {
+color: rgb(66, 146, 131);}
+
+.copyright h4 {
+  font-size: 1rem;
+  color: #cccccc;
+  margin-bottom: 6px;
+}
+
+.kianzo a h4 {
+  color: rgb(109, 5, 5);
+  font-size: 1.rem;
+  transition: color 0.3s;
+}
+
+.kianzo a h4:hover {
+  color: #f00a0a; /* verde más claro en hover */
+}
+
+/* === REDES SOCIALES === */
+.redes-final ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.iconos-final {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.iconos-final a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  height: 55px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  color: #ffffff;
+  font-size: 1.5rem;
+  border: 1px solid rgba(76, 175, 80, 0.2);
+}
+
+.iconos-final a:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+  border-color: rgba(236, 236, 236, 0.7);
+}
+
+/* Hover con colores de cada red */
+.iconos-final a[data-social="whatsapp"]:hover {
+  background: #25d366;
+  box-shadow: 0 0 15px rgba(37, 211, 102, 0.7);
+}
+
+.iconos-final a[data-social="facebook"]:hover {
+  background: #073996; /* verde corporativo para unificar */
+  box-shadow: 0 0 15px rgba(248, 248, 248, 0.7);
+}
+
+.iconos-final a[data-social="instagram"]:hover {
+  background: radial-gradient(circle at 30% 30%, #f58529, #dd2a7b, #8134af);
+  box-shadow: 0 0 15px rgba(221, 42, 123, 0.7);
+}
+
+/* Texto debajo de los iconos */
+.enlace-redes {
+  font-size: 0.85rem;
+  margin-top: 5px;
+  color: #cccccc;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .container-final {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .redes-final ul {
+    gap: 15px;
+  }
+}
+
+
+
+.whatsapp-grande {
+position: fixed;
+right: 50px;
+bottom: 170px;
+z-index: 1;
+opacity: 0.6;
+
+
+        }
+
+.whatsapp-grande:hover {
+scale: 1.2;
+opacity: 1;
+}
+
+.whatsapp-grande img {
+width: 80px;
+height: 80px;
+}
+
+
+/* === POSICIÓN FIJA === */
+
+/* ---------- Botones flotantes estilos ---------- */
+
+#botones-servicios {
+  position: fixed;
+  bottom: 300px;
+  left: 20px;
+  z-index: 2200;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 5px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.18);
+
+  width: auto;
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition: opacity 420ms cubic-bezier(.22, .9, .27, 1),
+              transform 420ms cubic-bezier(.22, .9, .27, 1);
+}
+/* Hover a los botones */
+
+
+#botones-servicios:hover {
+ background: rgba(255, 255, 255, 0.75);
+   scale: 1.08;
+  transition: 0.6s;
+}
+/* visible */
+#botones-servicios.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Label base */
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 100px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: transform 220ms ease, background 220ms ease;
+  user-select: none;
+  min-width: 130px;
+  background: transparent;
+  opacity: 0;
+  transform: translateY(6px);
+  transition-property: opacity, transform;
+  transition-duration: 360ms;
+  transition-timing-function: cubic-bezier(.22, .9, .27, 1);
+}
+
+/* Al hacer hover */
+.label:hover {
+  transform: translateX(4px);
+  background: rgba(0, 0, 0, 0.03);
+}
+
+/* Ocultar input nativo */
+.radio-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+}
+
+/* Único círculo visible */
+.radio-design {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, hsl(154, 97%, 62%), hsla(152, 86%, 45%, 1.00));
+  position: relative;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+/* Punto interior oscuro */
+.radio-design::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.18);
+  transition: transform 180ms ease;
+}
+
+/* Cuando está seleccionado */
+.radio-input:checked + .radio-design::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Texto al lado */
+.label-text {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: .6px;
+  color: hsl(0, 0%, 30%);
+}
+
+/* visible → animación suave */
+#botones-servicios.visible .label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  #botones-servicios {
+    left: 12px;
+    bottom: 72px;
+    padding: 8px;
+  }
+  .label {
+    min-width: 110px;
+    padding: 8px 10px;
+  }
+  .label-text {
+    font-size: 13px;
+  }
+  .radio-design {
+    width: 18px;
+    height: 18px;
+  }
+  .radio-design::after {
+    width: 7px;
+    height: 7px;
+  }
 }
